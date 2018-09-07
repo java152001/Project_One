@@ -9,17 +9,21 @@ var completedList = [];
 
 completedList = JSON.parse(localStorage.getItem("todolist"));
 
-$("#try").on("click", addNew);
+$("#try").on("click", function() {
+    addNew();
+
+
+});
 
 function addNew() {
 
     var newDiv = $("<div>");
 
     var newLine = $("<select>");
-    newLine.attr("data-ingredient-number", ingredientNumber);
+    // newLine.attr("data-ingredient-number", ingredientNumber);
     var newOption;
-    var deleteButton = $("<button>");
-    var quantity = $("<input>");
+    var deleteButton = $("<button class='delete'>");
+    // var quantity = $("<input>");
 
     for (var i = 0; i < ingredients.length; i++) {
 
@@ -28,10 +32,11 @@ function addNew() {
         newOption.html(ingredients[i]);
         newLine.append(newOption);
         newDiv.append(newLine);
-        deleteButton.attr("data-number", i);
+        newDiv.attr("data-ingredient-number", ingredientNumber)
+        deleteButton.attr("data-number", ingredientNumber);
         deleteButton.text("X");
-        quantity.attr("value", "qty");
-        newDiv.append(quantity);
+        // quantity.attr("value", "qty");
+        // newDiv.append(quantity);
         newDiv.append(deleteButton);
 
     }
@@ -40,6 +45,14 @@ function addNew() {
 
     ingredientNumber++;
 }
+
+$(document).on("click", "button.delete", function() {
+    var currentItem = $(this).attr('data-number');
+
+    $("#pantry").find("[data-ingredient-number='" + currentItem + "']").remove();
+
+    console.log(currentItem);
+});
 
 $("#submit").on("click", tabulate);
 
