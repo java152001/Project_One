@@ -46,14 +46,15 @@ function addNew() {
     ingredientNumber++;
 }
 
+// removes the select option when the X button is clicked
 $(document).on("click", "button.delete", function() {
     var currentItem = $(this).attr('data-number');
 
     $("#pantry").find("[data-ingredient-number='" + currentItem + "']").remove();
-
-    console.log(currentItem);
+    
 });
 
+// tabulates all the current selections into an array and stores that array in local storage
 $("#submit").on("click", tabulate);
 
 function tabulate() {
