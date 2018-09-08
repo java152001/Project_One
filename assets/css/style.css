@@ -55,7 +55,7 @@
 .btn
 {
     background-color: darkgreen;
-    color: white;
+    color: bisque;
     font-family: 'EB Garamond', serif;
     border-radius: 12px;
     width: 200px;
@@ -107,6 +107,7 @@
 {
     text-decoration: underline;
     text-decoration-color: darkgreen;
+    text-align: center;
 }
 
 
