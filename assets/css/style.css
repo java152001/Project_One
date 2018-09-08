@@ -1,4 +1,5 @@
-#container
+#container,
+#map
 {
     background-color: rgb(241, 200, 145);
     background-image: ("turkey1.jpeg");
@@ -108,6 +109,7 @@
     text-decoration: underline;
     text-decoration-color: darkgreen;
 }
+
 
 
 
