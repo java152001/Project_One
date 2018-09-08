@@ -1,5 +1,4 @@
 var ingredients = ["--Meats--", "Beef", "Chicken", "Fish", "--Vegetables--", "Carrots", "Mushroom", "Onion", "Milk", "Broth"];
-var quantity = ["cups", "pounds", "grams"];
 var ingredientNumber = 0;
 
 var completedList = [];
@@ -54,7 +53,7 @@ function addNew() {
     var newLine = $("<select>");
     // newLine.attr("data-ingredient-number", ingredientNumber);
     var newOption;
-    var deleteButton = $("<button class='delete'>");
+    var newButton = $("<button>");
     // var quantity = $("<input>");
 
     for (var i = 0; i < ingredients.length; i++) {
@@ -72,11 +71,12 @@ function addNew() {
         newLine.append(newOption);
         newDiv.append(newLine);
         newDiv.attr("data-ingredient-number", ingredientNumber)
-        deleteButton.attr("data-number", ingredientNumber);
-        deleteButton.text("X");
+
+        newButton.attr("data-number", ingredientNumber);
+        newButton.text("X");
         // quantity.attr("value", "qty");
         // newDiv.append(quantity);
-        newDiv.append(deleteButton);
+        newDiv.append(newButton);
 
     }
 
@@ -92,8 +92,6 @@ function tabulate() {
 
     $("#ingList").empty();
     $("#ingList").html("<h4>Your current list:</h4>");
-
-    completedList = [];
 
     $("#pantry").find("select").each(function(index, select){
         completedList.push($(select).find(":selected").text())
