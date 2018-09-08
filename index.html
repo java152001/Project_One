@@ -6,24 +6,99 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script src="pantry.js"></script>
 
     <style>
+        
     #pantry {
         width: 200px;
         height: 600px;
         border-style: solid;
         border-width: 2px;
         margin: 20px;
+        font-family: 'Courier New', Courier, monospace;
     }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .box {
+        float: left;
+        width: 33.33%;
+        padding: 50px;
+    }
+
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    #btn {
+        margin: 20px;
+        font-family: 'Courier New', Courier, monospace;
+        margin-left: 27%;
+    }
+
     </style>
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+        $("#btn").click(function () {
+        $(".card-deck").toggle();
+    });
+});
+
+    
+    
+    </script>
 </head>
 <body>
-    <div id="pantry">
+    <div class="clearfix">
+    <div id="pantry" class="box">
         <select>
             <option value="Beef">Beef</option>
             <option value="Carrot">Carrot</option>
         </select>
     </div>
+
+    <div>
+            <input type="button" id="btn" class="btn btn-default"  class="box" value="🍔">
+            </div>
+    
+        <div class="card-deck" style="display: none">
+            <div class="card" class="box">
+              <!-- <img class="card-img-top" src=".../100px200/" alt="Card image cap"> -->
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+              </div>
+            </div>
+            <div class="card" class="box">
+              <!-- <img class="card-img-top" src=".../100px200/" alt="Card image cap"> -->
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+              </div>
+            </div>
+            <div class="card" class="box">
+              <!-- <img class="card-img-top" src=".../100px200/" alt="Card image cap"> -->
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+    
 </body>
 </html>
