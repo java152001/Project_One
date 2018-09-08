@@ -3,12 +3,16 @@ var ingredientNumber = 0;
 
 var completedList = [];
 
+var uniqueList = [];
+
 
 // brings in list from local storage
 completedList = JSON.parse(localStorage.getItem("completedList"));
 
 // checks to see if there is anything in the array and if so generate our current list
 if (completedList.length !== 0) {
+    $("#ingList").html("<h4>Your current list:</h4>");
+
     createList();
 } 
 
@@ -17,6 +21,7 @@ if (completedList.length !== 0) {
 // generates a new selection entry on the page
 $("#add").on("click", function() {
     addNew();
+    console.log('clicked');
 });
 
 // removes the select option when the X button is clicked
@@ -31,16 +36,13 @@ $(document).on("click", "button.delete", function() {
 $("#ingList").on("click", "button.listDelete", function() {
     var currentDelete = $(this).attr('data-list-number');
 
+    uniqueList.splice(currentDelete, 1);
     completedList.splice(currentDelete, 1);
 
     $("#ingList").empty();
     $("#ingList").html("<h4>Your current list:</h4>");
 
     createList();
-
-    localStorage.clear();
-
-    localStorage.setItem("completedList", JSON.stringify(completedList));
 })
 
 // tabulates all the current selections into an array and stores that array in local storage
@@ -53,7 +55,7 @@ function addNew() {
     var newLine = $("<select>");
     // newLine.attr("data-ingredient-number", ingredientNumber);
     var newOption;
-    var newButton = $("<button>");
+    var newButton = $("<button class='delete'>");
     // var quantity = $("<input>");
 
     for (var i = 0; i < ingredients.length; i++) {
@@ -70,8 +72,7 @@ function addNew() {
         }
         newLine.append(newOption);
         newDiv.append(newLine);
-        newDiv.attr("data-ingredient-number", ingredientNumber)
-
+        newDiv.attr("data-ingredient-number", ingredientNumber);
         newButton.attr("data-number", ingredientNumber);
         newButton.text("X");
         // quantity.attr("value", "qty");
@@ -99,9 +100,6 @@ function tabulate() {
 
     createList();
 
-    localStorage.clear();
-
-    localStorage.setItem("completedList", JSON.stringify(completedList));
 
 
 }
@@ -109,11 +107,19 @@ function tabulate() {
 // takes our working list of items and creates a current ingredient list for the user to see.
 function createList() {
 
-    for (var i = 0; i < completedList.length; i++) {
+    // removeDups();
+
+    $.each(completedList, function(i, el){
+        if($.inArray(el, uniqueList) === -1) {
+            uniqueList.push(el);
+        }
+    });
+
+    for (var i = 0; i < uniqueList.length; i++) {
         var ingDiv = $("<div>");
         var listDel = $("<button class='listDelete'>");
 
-        ingDiv.html(completedList[i]);
+        ingDiv.html(uniqueList[i]);
         listDel.attr("data-list-number", i);
         listDel.text("X");
         ingDiv.append(listDel);
@@ -121,4 +127,17 @@ function createList() {
     }
 
     $("#ingList").css("visibility", "visible");
+
+    localStorage.clear();
+
+    localStorage.setItem("completedList", JSON.stringify(uniqueList));
 }
+
+// function removeDups() {
+        
+//         for (var i = 0; i < completedList.length; i++){
+//             if (unique_array.indexOf(completedList) == -1) {
+//                 unique_array.push(completedList[i]);
+//             }
+//         }
+//     }
