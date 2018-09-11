@@ -42,23 +42,57 @@ function addNew() {
 
 // recipe stuff below this line
 
-var urlKey = 'keygoeshere'
-var spoonURL1 = 'urlgoeshere' + urlKey // search recipes https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search
-var spoonURL2 = 'url2goeshere' + urlKey // search site content https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/site/search
+var mashapeHeaders = {
+      'X-Mashape-Key': 'dsGw9nFi65mshhHVvLGFzWY0BbPNp1byJ6njsnmw61a6HHSCw3'
+};
 
-
-$.ajax({
-    url: spoonURL,
-    method: 'GET'
-}) .then(function(response1)) {
-    console.log(response1.results[0].image)
-    $.ajax({
-        url: spoonURL2, //(but make sure it has the correct endpoint)
-        method: 'GET'
-    }) .then(function(response2)) {
-        console.log(response2.Recipes[0].link)
-    }
+function getRecipe(id) {
+  return $.ajax({
+    url: 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/' + id + '/information/',
+    headers: mashapeHeaders
+  });
 }
+
+
+function recSearch(queries, limit) {
+  var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=" + limit + "&query=" + queries.join(' ');
+  
+  console.log(url);
+  
+  return $.ajax({
+    url: url,
+    headers: mashapeHeaders
+  }).then(function(response) {
+     var getCalls = response.results.map(function(rec) {
+       return getRecipe(rec.id);
+     });
+    
+    return $.when.apply($, getCalls);
+    //$.when(getCalls[0], getCalls[1], etc.)
+    
+    // just to show the apply in action 
+    // getRecipe.apply(getRecipe, [234523, 223402830]);
+    // getRecipe(234523, 223402830);
+    
+  });
+}
+// do not "uncomment" below this for the recSearch function unless you want to run the ajax call
+// we ARE LIMITED TO 50 CALLS PER DAY
+
+
+// recSearch(['noodles', 'tomato[NEED HELP]'], 3).done(function() {
+//   for(var r = 0; r < arguments.length; r++) {
+//     if(arguments[r].hasOwnProperty('id')) {
+//       console.log(arguments[r].readyInMinutes);
+//       console.log(arguments[r].title);
+//       console.log(arguments[r].imageURLs)
+//        above this is where we would want to print to the page or change dom hmtl with the output from the ajax calls
+//        example >>>>>>> $('body').html(arguments[r].readyInMinutes) or wtvr element # you want filled in to print to page
+//     }
+//   }
+// })
+
+
 
 // stuff from anthony below
 
