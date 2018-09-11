@@ -1,11 +1,39 @@
 var ingredients = ["Beef", "Chicken", "Fish", "Carrots", "Mushroom", "Onion", "Milk", "Broth"];
+var quantity = ["cups", "pounds", "grams"];
+var ingredientNumber = 0;
+
+var completedList = [];
+
+
+// addNew();
+
+completedList = JSON.parse(localStorage.getItem("todolist"));
+
+$("#try").on("click", addNew);
 
 function addNew() {
-    var select = $("<select>");
-    var option = $("<option>");
+
+    var newDiv = $("<div>");
+
+    var newLine = $("<select>");
+    newLine.attr("data-ingredient-number", ingredientNumber);
+    var newOption;
+    var deleteButton = $("<button>");
+    var quantity = $("<input>");
 
     for (var i = 0; i < ingredients.length; i++) {
-        
+
+        newOption = $("<option>");
+        newOption.attr("value", ingredients[i]);
+        newOption.html(ingredients[i]);
+        newLine.append(newOption);
+        newDiv.append(newLine);
+        deleteButton.attr("data-number", i);
+        deleteButton.text("X");
+        quantity.attr("value", "qty");
+        newDiv.append(quantity);
+        newDiv.append(deleteButton);
+
     }
 }
 
@@ -32,69 +60,25 @@ $.ajax({
     }
 }
 
-// function giphy() {
-//     // Creating, Grabbing, and storing the data-topicName property value from the button
-//     var topicName = JSON.stringify($(this).attr("data-name"));
+// stuff from anthony below
 
-//     // Constructing a queryURL using the topic name
-//     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-//       topicName + "&api_key=dc6zaTOxFJmzC&limit=10";
+    $("#pantry").append(newDiv);
 
-//     // Performing an AJAX request with the queryURL
-//     $.ajax({
-//       url: queryURL,
-//       method: "GET"
-//     })
-//       // After data comes back from the request
-//       .then(function(response) {
-//         console.log(queryURL);
+    ingredientNumber++;
+}
 
-//         console.log(response);
-//         // storing the data from the AJAX request in the results variable
-//         var results = response.data;
+$("#submit").on("click", tabulate);
 
-//         console.log(results)
-//         // Looping through each result item
-//         for (var i = 0; i < results.length; i++) {
+function tabulate() {
+    completedList = [];
 
-//           // Creating and storing a div tag
-//           var gifsDiv = $("<div>");
+    $("#pantry").find("select").each(function(index, select){
+        completedList.push($(select).find(":selected").text())
+    });
 
-//           // Creating a paragraph tag with the result item's rating
-//           var p = $("<p>").text("Rating: " + results[i].rating);
+    localStorage.clear();
 
-//           // Creating and storing an image tag
-//           var gifsImage = $("<img class='gif' data-state>");
-//           // Setting the src attribute of the image to a property pulled off the result item
-//           gifsImage.attr("src", results[i].images.fixed_height_still.url);
-//           // setting the alt to the appropriate name in case image dont load
-//           gifsImage.attr("alt", topicName);
-//           // adding attr to gif img
-//           gifsImage.attr("data-state", "still");
-//           //creating data-still and data-animate attributes one the gifsimage image for later use   
-//           gifsImage.attr("data-still", results[i].images.fixed_height_still.url)
-//           gifsImage.attr("data-animate", results[i].images.fixed_height.url)
-//           // Appending the paragraph and image tag to the gifsDiv
-//           gifsDiv.append(gifsImage);
-//           gifsDiv.append(p);
+    localStorage.setItem("completedList", JSON.stringify(completedList));
 
-//           // Prependng the gifsDiv to the HTML page in the "#gifsDiv" div
-//           $("#gifsDiv").prepend(gifsDiv);
-//         }
-
-//         $(".gif").on("click", function() {
-//             // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
-//             var state = $(this).attr("data-state");
-
-//             if (state === "still") {
-//               $(this).attr("src", $(this).attr("data-animate"));
-//               $(this).attr("data-state", "animate");
-//             } else {
-//               $(this).attr("src", $(this).attr("data-still"));
-//               $(this).attr("data-state", "still");
-//             }
-//           });
-//       });
-//   };
-
-//   $(document).on("click", ".topicsClass", giphy);
+    console.log(completedList);
+}

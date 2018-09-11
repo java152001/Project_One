@@ -1,0 +1,113 @@
+#container
+{
+    background-color: rgb(241, 200, 145);
+    background-image: ("turkey1.jpeg");
+    border-style: solid;
+    border-color: darkgreen;
+    border-radius: 12px;
+    margin: 5px;
+    padding: 5px;
+    font-family: 'EB Garamond', serif;
+}
+#pantry
+{
+    border-style: solid;
+    border-color: darkgreen;
+    border-radius: 12px;
+    margin: 5px;
+    margin-left: 10px;
+    padding: 10px;
+    font-family: 'EB Garamond', serif;
+    width: 49%;
+}
+#neededFood
+{
+    border-style: solid;
+    border-color: darkgreen;
+    border-radius: 12px;
+    margin: 5px;
+    margin-top: 25px;
+    padding: 5px;
+    font-family: 'EB Garamond', serif;
+    width: 49%;
+    float: right;
+}
+#h1
+{
+    text-align: center;
+    font-family: 'EB Garamond', serif;
+    font-size: 50px;
+    font-style: italic;  
+}
+#p
+{
+    text-align: center;
+    font-family: 'EB Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+}
+.dropdown
+{
+    font-family: 'EB Garamond', serif;
+    width: 200px;
+    height: 40px;
+}
+.btn
+{
+    background-color: darkgreen;
+    color: white;
+    font-family: 'EB Garamond', serif;
+    border-radius: 12px;
+    width: 200px;
+    height: 40px;
+    
+}
+.dropdown-toggle
+{
+    width: 200px;
+    height: 40px;
+    font-family: 'EB Garamond', serif;
+}
+.dropdownMenuButton
+{
+    width: 200px;
+    height: 40px;
+    font-family: 'EB Garamond', serif;
+}
+.caret
+{
+    position: relative;
+    cursor: pointer;
+}
+.list
+{
+    border-style: dashed;
+    border-radius: 12px;
+    border-color: darkgreen;
+    background-color: bisque;
+    font-family: 'EB Garamond', serif;
+    padding: 5px;
+    margin: 5px;
+    text-align: left;
+}
+#header
+{
+    border-style: solid;
+    border-radius: 12px;
+    border-color: darkgreen;
+    font-family: 'EB Garamond', serif;
+    padding: 10px;
+    margin: 10px;
+}
+.dropdown-header
+{
+    font-family: 'EB Garamond', serif;
+}
+#h2
+{
+    text-decoration: underline;
+    text-decoration-color: darkgreen;
+}
+
+
+
