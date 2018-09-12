@@ -1,113 +1,121 @@
 #container
 {
+    box-shadow: 3px 3px black;
     background-color: rgb(241, 200, 145);
-    background-image: ("turkey1.jpeg");
+    font-family: 'EB Garamond', serif;
     border-style: solid;
     border-color: darkgreen;
     border-radius: 12px;
     margin: 5px;
+    padding-bottom: 10px;
     padding: 5px;
+}
+.row
+{
     font-family: 'EB Garamond', serif;
 }
-#pantry
+.col-4
 {
+    background-color: bisque;
+    box-shadow: 5px 3px;
+    text-align: center;
     border-style: solid;
-    border-color: darkgreen;
     border-radius: 12px;
-    margin: 5px;
-    margin-left: 10px;
-    padding: 10px;
+    border-color: darkgreen;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    padding-left: 10px;
     font-family: 'EB Garamond', serif;
-    width: 49%;
 }
-#neededFood
+.col-8-recipe
 {
+    background-color: bisque;
+    box-shadow: 5px 3px;
     border-style: solid;
-    border-color: darkgreen;
     border-radius: 12px;
-    margin: 5px;
-    margin-top: 25px;
-    padding: 5px;
+    border-color: darkgreen;
+    margin: 10px;
+    width: 60%;
     font-family: 'EB Garamond', serif;
-    width: 49%;
-    float: right;
 }
 #h1
 {
     text-align: center;
-    font-family: 'EB Garamond', serif;
-    font-size: 50px;
-    font-style: italic;  
-}
-#p
-{
-    text-align: center;
-    font-family: 'EB Garamond', serif;
-    font-size: 20px;
-    font-style: italic;
-}
-.dropdown
-{
-    font-family: 'EB Garamond', serif;
-    width: 200px;
-    height: 40px;
-}
-.btn
-{
-    background-color: darkgreen;
-    color: white;
-    font-family: 'EB Garamond', serif;
-    border-radius: 12px;
-    width: 200px;
-    height: 40px;
-    
-}
-.dropdown-toggle
-{
-    width: 200px;
-    height: 40px;
-    font-family: 'EB Garamond', serif;
-}
-.dropdownMenuButton
-{
-    width: 200px;
-    height: 40px;
-    font-family: 'EB Garamond', serif;
-}
-.caret
-{
-    position: relative;
-    cursor: pointer;
-}
-.list
-{
-    border-style: dashed;
-    border-radius: 12px;
+    text-decoration: underline;
+    text-decoration-color: darkgreen;
+    color: darkgreen;
+    border-style: solid;
     border-color: darkgreen;
-    background-color: bisque;
+    border-radius: 12px;
     font-family: 'EB Garamond', serif;
-    padding: 5px;
-    margin: 5px;
-    text-align: left;
+
 }
-#header
+.recipe
 {
+    text-align: left;
+    font-family: 'EB Garamond', serif;
+}
+#maps-col-6
+{
+    background-color: bisque;
+    box-shadow: 5px 3px black;
+    width: 400px;
+    height: 400px;
     border-style: solid;
     border-radius: 12px;
     border-color: darkgreen;
+    text-align: center;
     font-family: 'EB Garamond', serif;
-    padding: 10px;
-    margin: 10px;
-}
-.dropdown-header
-{
-    font-family: 'EB Garamond', serif;
-}
-#h2
-{
+    color: darkgreen;
     text-decoration: underline;
     text-decoration-color: darkgreen;
+    font-size: 24px;
 }
-
-
-
+#h
+{
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: darkgreen;
+    color: darkgreen;
+    font-size: 25px;
+    font-family: 'EB Garamond', serif;
+}
+.btn
+{
+    box-shadow: 2px 2px black;
+    background-color: darkgreen;
+    border-radius: 12px;
+    margin-left: 10px;
+    font-family: 'EB Garamond', serif;
+    color: whitesmoke;
+    
+}
+.dropdown-menu
+{
+    background-color: whitesmoke;
+    font-family: 'EB Garamond', serif;
+}
+.dropdown-item
+{
+    background-color: whitesmoke;
+    font-family: 'EB Garamond', serif;
+}
+#p
+{
+    font-size: 24px;
+    color: darkgreen;
+    font-family: 'EB Garamond', serif;
+    text-align: center;
+    background-color: bisque;
+    border-style: solid;
+    border-color: darkgreen;
+    border-radius: 12px;
+    box-shadow: 3px 3px black;
+}
+#h1
+{
+    font-family: 'EB Garamond', serif;
+    background-color: bisque;
+    box-shadow: 3px 3px black;
+}
