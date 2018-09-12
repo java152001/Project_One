@@ -7,6 +7,7 @@ var uniqueList = [];
 
 
 // brings in list from local storage
+localStorage.setItem("completedList", JSON.stringify(uniqueList));
 completedList = JSON.parse(localStorage.getItem("completedList"));
 
 // checks to see if there is anything in the array and if so generate our current list

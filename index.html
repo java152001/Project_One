@@ -12,37 +12,56 @@
     <body id = "container">
         <h1 id = "h1"><strong>Reciplease!</strong></h1>
         <p id = "p">Please make your food selection in the dropdown below and to the left. <br> Then select which dietary restrictions you would like to apply. <br> Once that is completed, three suggested recipes will be shown.</p>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Food Catagories
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+
         </div>
         <div class = "row">
             <div class = "col-3" id="pantry">
                <h1 id = "h"><strong>Pantry Foods</strong></h1>
+
                <div id="ingList">
                <button id="add">Add!</button> 
                <button id="submit">Submit</button>
+               <br><br><br><br><br><br><br><br><br><br>
+               <p id = "p">Previously Added Food</p>
             </div>
             </div>
             <br>
             <div class = "col-8 ml-auto recipe">
                 <h1 id = "h"><strong>Recipes</strong></h1>
                 <div>
-                    Recipe panels 1-3
-                </div>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Are you vegetarian?
+                            </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="#">Yes</a>
+                                  <a class="dropdown-item" href="#">No</a>
+                                </div>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Food Catagories
+                            </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Dairy</a>
+                                    <a class="dropdown-item" href="#">Egg</a>
+                                    <a class="dropdown-item" href="#">Gluten</a>
+                                    <a class="dropdown-item" href="#">Peanut</a>
+                                    <a class="dropdown-item" href="#">Sesame</a>
+                                    <a class="dropdown-item" href="#">Seafood</a>
+                                    <a class="dropdown-item" href="#">Shellfish</a>
+                                    <a class="dropdown-item" href="#">Soy</a>
+                                    <a class="dropdown-item" href="#">Tree Nut</a>
+                                    <a class="dropdown-item" href="#">Wheat</a>
+                                </div>
+                        </div>
+                    </div>
             </div>
-        </div>
         <br>
-        <div id = "maps-col-6">
-            <strong>Map</strong>
-        </div>
-        
+        <div id = "row">
+            <div id = "maps-col-6">
+                <strong>Map</strong>
+            </div>
+        </div>    
     </body>
 
 
