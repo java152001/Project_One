@@ -201,21 +201,21 @@ if (isAllergic === "none") {
 
 console.log(isAllergic);
 
-recSearch({
-  query: uniqueList,
-  limit: 1,
-  diet: isVege,
-  allergy: isAllergic,
+// recSearch({
+//   query: uniqueList,
+//   limit: 1,
+//   diet: isVege,
+//   allergy: isAllergic,
   
-}).done(function(response) {
+// }).done(function(response) {
   
-  for(var r = 0; r < arguments.length; r++) {
-    if(arguments[r].hasOwnProperty('id')) {
-      console.log(arguments[r]);
-      cardGenerate(response.image, response.title, response.spoonacularSourceUrl);
-    }
-  }
-})
+//   for(var r = 0; r < arguments.length; r++) {
+//     if(arguments[r].hasOwnProperty('id')) {
+//       console.log(arguments[r]);
+//       cardGenerate(response.image, response.title, response.spoonacularSourceUrl);
+//     }
+//   }
+// })
 
 });
 
