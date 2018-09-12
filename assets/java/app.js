@@ -144,7 +144,7 @@ function recSearch(queries, limit) {
     $("#pantry").append(newDiv);
 
     ingredientNumber++;
-}
+
 
 
 // takes all of our existing select tags and combines them into an array of all selected options.
@@ -193,10 +193,8 @@ function createList() {
     localStorage.setItem("completedList", JSON.stringify(uniqueList));
 }
 
-<<<<<<< HEAD
     console.log(completedList);
-}
-=======
+
 // function removeDups() {
         
 //         for (var i = 0; i < completedList.length; i++){
@@ -205,4 +203,3 @@ function createList() {
 //             }
 //         }
 //     }
->>>>>>> origin/Anthony/Pantry
