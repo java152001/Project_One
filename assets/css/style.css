@@ -130,6 +130,48 @@
 #h1
 {
     font-family: 'EB Garamond', serif;
-    background-color: bisque;
-    box-shadow: 3px 3px black;
 }
+#h2
+{
+    text-decoration: underline;
+    text-decoration-color: darkgreen;
+}
+
+
+/* Jorge css */
+
+* {
+    box-sizing: border-box;
+}
+
+.box {
+    float: left;
+    height: 70%;
+    width: 32%;
+    margin: 5px;
+    padding: 50px;
+    
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#btn {
+    margin: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 38%;
+}
+
+.card {
+    border: 3px solid darkgreen !important;
+    border-radius: 5px !important;
+    background-color: #f1c891 !important;
+}
+
+
+    /* background-color: bisque;
+    box-shadow: 3px 3px black;
+} */
