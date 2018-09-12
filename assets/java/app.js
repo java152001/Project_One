@@ -7,7 +7,11 @@ var uniqueList = [];
 
 
 // brings in list from local storage
+<<<<<<< HEAD
 
+=======
+localStorage.setItem("completedList", JSON.stringify(uniqueList));
+>>>>>>> master
 completedList = JSON.parse(localStorage.getItem("completedList"));
 
 // checks to see if there is anything in the array and if so generate our current list
@@ -208,3 +212,27 @@ function createList() {
 //             }
 //         }
 //     }
+
+$("#btn").on("click", function() {
+    cardGenerate("HELLO WORLD", "Is this working?");
+    cardGenerate("Take 2", "Still working?");
+    cardGenerate("Final Act", "Please look right");
+});
+
+function cardGenerate(title, summary) {
+    var cardDiv = $("<div class='card box'>");
+    var cardBody = $("<div class='card-body'>");
+    // var cardImage = $("<img class='card-img-top'>");
+    // cardImage.attr("src", image);
+
+    var cardTitle = "<h5 class='card-title'>" + title + "</h5>";
+    var cardSummary = "<p class='card-text'>" + summary + "</p>";
+    console.log(cardTitle);
+    console.log(cardBody);
+
+    cardDiv.html(cardTitle);
+    cardBody.html(cardSummary);
+    cardDiv.append(cardBody);
+
+    $(".recipe").append(cardDiv);
+}

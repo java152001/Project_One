@@ -5,7 +5,7 @@
     font-family: 'EB Garamond', serif;
     border-style: solid;
     border-color: darkgreen;
-    border-radius: 12px;
+    /* border-radius: 12px; */
     margin: 5px;
     padding-bottom: 10px;
     padding: 5px;
@@ -14,7 +14,7 @@
 {
     font-family: 'EB Garamond', serif;
 }
-#pantry
+.pantry
 {
     height: 600px;
     background-color: bisque;
@@ -29,6 +29,25 @@
     padding-left: 10px;
     font-family: 'EB Garamond', serif;
 }
+#add {
+    position: absolute;
+    bottom: 10px;
+    left: 60px;
+}
+#submit {
+    position: absolute;
+    bottom: 10px;
+    right: 60px;
+}
+#ingList {
+    position: absolute;
+    bottom: 60px;
+    right: 16px;
+    width: 90%;
+    border-style: solid;
+    border-color: black;
+    height: 300px;
+}
 .recipe
 {
     background-color: bisque;
@@ -37,31 +56,25 @@
     border-radius: 12px;
     border-color: darkgreen;
     margin: 10px;
-    width: 60%;
     font-family: 'EB Garamond', serif;
 }
 #h1
 {
     text-align: center;
+    height: 80px;
+    padding: 10px;
     text-decoration: underline;
     text-decoration-color: darkgreen;
     color: darkgreen;
     border-style: solid;
     border-color: darkgreen;
-    border-radius: 12px;
-    font-family: 'EB Garamond', serif;
-
-}
-.recipe
-{
-    text-align: left;
+    /* border-radius: 12px; */
     font-family: 'EB Garamond', serif;
 }
-#maps-col-6
+.map
 {
     background-color: bisque;
     box-shadow: 5px 3px black;
-    width: 400px;
     height: 400px;
     border-style: solid;
     border-radius: 12px;
@@ -117,6 +130,48 @@
 #h1
 {
     font-family: 'EB Garamond', serif;
-    background-color: bisque;
-    box-shadow: 3px 3px black;
 }
+#h2
+{
+    text-decoration: underline;
+    text-decoration-color: darkgreen;
+}
+
+
+/* Jorge css */
+
+* {
+    box-sizing: border-box;
+}
+
+.box {
+    float: left;
+    height: 70%;
+    width: 32%;
+    margin: 5px;
+    padding: 50px;
+    
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#btn {
+    margin: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 38%;
+}
+
+.card {
+    border: 3px solid darkgreen !important;
+    border-radius: 5px !important;
+    background-color: #f1c891 !important;
+}
+
+
+    /* background-color: bisque;
+    box-shadow: 3px 3px black;
+} */
