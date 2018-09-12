@@ -50,6 +50,7 @@
 }
 .recipe
 {
+    position: relative;
     background-color: bisque;
     box-shadow: 5px 3px;
     border-style: solid;
@@ -137,8 +138,12 @@
     text-decoration-color: darkgreen;
 }
 
-
-/* Jorge css */
+#getCard {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 * {
     box-sizing: border-box;
@@ -151,18 +156,6 @@
     margin: 5px;
     padding: 50px;
     
-}
-
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-#btn {
-    margin: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    margin-left: 38%;
 }
 
 .card {

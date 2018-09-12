@@ -7,11 +7,6 @@ var uniqueList = [];
 
 
 // brings in list from local storage
-<<<<<<< HEAD
-
-=======
-localStorage.setItem("completedList", JSON.stringify(uniqueList));
->>>>>>> master
 completedList = JSON.parse(localStorage.getItem("completedList"));
 
 // checks to see if there is anything in the array and if so generate our current list
@@ -213,7 +208,7 @@ function createList() {
 //         }
 //     }
 
-$("#btn").on("click", function() {
+$("#getCard").on("click", function() {
     cardGenerate("HELLO WORLD", "Is this working?");
     cardGenerate("Take 2", "Still working?");
     cardGenerate("Final Act", "Please look right");
