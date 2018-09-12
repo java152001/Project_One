@@ -7,14 +7,19 @@ var uniqueList = [];
 
 
 // brings in list from local storage
+
 completedList = JSON.parse(localStorage.getItem("completedList"));
 
 // checks to see if there is anything in the array and if so generate our current list
-if (completedList.length !== 0) {
-    $("#ingList").html("<h4>Your current list:</h4>");
+// if (completedList.length !== 0) {
+//     $("#ingList").html("<h4>Your current list:</h4>");
 
-    createList();
-} 
+//     createList();
+// } 
+if (!Array.isArray(completedList)) {
+    completedList = [];
+  }
+
 
 
 
