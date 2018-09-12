@@ -88,7 +88,7 @@ function addNew() {
 
 
 
-
+///////////////////////////////////////////////////////////////////////
 // recipe stuff below this line
 
 var mashapeHeaders = {
@@ -104,7 +104,8 @@ function getRecipe(id) {
 
 
 function recSearch(options) {
-  var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=" + options.limit + "&query=" + options.query.join('+') + "&diet=" + options.diet + "&intolerances=" + options.allergy;
+  var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=" + 
+  options.limit + "&query=" + options.query.join('+') + "&diet=" + options.diet + "&intolerances=" + options.allergy;
   
   console.log(url);
   
@@ -112,27 +113,19 @@ function recSearch(options) {
     url: url,
     headers: mashapeHeaders
   }).then(function(res) {
-    // var getCalls = [];
-    // for(var r = 0; r < res.results.length; r++) {
-    //   getCalls.push(getRecipe(res.results[i].id));
-    // }
-    
      var getCalls = res.results.map(function(rec) {
        return getRecipe(rec.id);
      });
-    //getCalls = [ajaxPromise, ajaxPromise, ajaxPromise]
     
     return $.when.apply($, getCalls);
-    //$.when(getCalls[0], getCalls[1], etc.)
     
   });
 }
 var isVege = "vegetarian"; //this should come from input from checkbox $('#checkbox').val()
-var isAllergic = "dairy";
-var localStorageData = ['noodles', 'tomato'];
+var isAllergic = "dairy"; //fill in from drop down from all the allergies
 
 recSearch({
-  query: localStorageData,
+  query: uniqueList,
   limit: 1,
   diet: isVege,
   allergy: isAllergic,
@@ -142,17 +135,13 @@ recSearch({
   for(var r = 0; r < arguments.length; r++) {
     if(arguments[r].hasOwnProperty('id')) {
       console.log(arguments[r]);
+      ///// this ^^^^ is where the final payoff to ouput data to the html DOM is
     }
   }
 })
 
-// function test() {
-//   for(var n = 0; n < arguments.length; n++) {
-//     console.log(arguments[n]);
-//   }
-// }
-
-// test(3, 5, 2, 'blah');
+// end recipes from benjamin
+////////////////////////////////////////////////////////////////
 
 
 
