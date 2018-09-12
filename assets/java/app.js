@@ -1,7 +1,7 @@
 var ingredients = ["--Meats--", "Beef", "Chicken", "Fish", "--Vegetables--", "Carrots", "Mushroom", "Onion", "Milk", "Broth"];
 var ingredientNumber = 0;
 
-var completedList = [];
+// var completedList = [];
 
 var uniqueList = [];
 
