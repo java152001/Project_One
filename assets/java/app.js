@@ -54,43 +54,56 @@ function getRecipe(id) {
 }
 
 
-function recSearch(queries, limit) {
-  var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=" + limit + "&query=" + queries.join(' ');
+function recSearch(options) {
+  var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=" + options.limit + "&query=" + options.query.join('+') + "&diet=" + options.diet + "&intolerances=" + options.allergy;
   
   console.log(url);
   
   return $.ajax({
     url: url,
     headers: mashapeHeaders
-  }).then(function(response) {
-     var getCalls = response.results.map(function(rec) {
+  }).then(function(res) {
+    // var getCalls = [];
+    // for(var r = 0; r < res.results.length; r++) {
+    //   getCalls.push(getRecipe(res.results[i].id));
+    // }
+    
+     var getCalls = res.results.map(function(rec) {
        return getRecipe(rec.id);
      });
+    //getCalls = [ajaxPromise, ajaxPromise, ajaxPromise]
     
     return $.when.apply($, getCalls);
     //$.when(getCalls[0], getCalls[1], etc.)
     
-    // just to show the apply in action 
-    // getRecipe.apply(getRecipe, [234523, 223402830]);
-    // getRecipe(234523, 223402830);
-    
   });
 }
-// do not "uncomment" below this for the recSearch function unless you want to run the ajax call
-// we ARE LIMITED TO 50 CALLS PER DAY
+var isVege = "vegetarian"; //this should come from input from checkbox $('#checkbox').val()
+var isAllergic = "dairy";
+var localStorageData = ['noodles', 'tomato'];
 
+recSearch({
+  query: localStorageData,
+  limit: 1,
+  diet: isVege,
+  allergy: isAllergic,
+  
+}).done(function() {
+  
+  for(var r = 0; r < arguments.length; r++) {
+    if(arguments[r].hasOwnProperty('id')) {
+      console.log(arguments[r]);
+    }
+  }
+})
 
-// recSearch(['noodles', 'tomato[NEED HELP]'], 3).done(function() {
-//   for(var r = 0; r < arguments.length; r++) {
-//     if(arguments[r].hasOwnProperty('id')) {
-//       console.log(arguments[r].readyInMinutes);
-//       console.log(arguments[r].title);
-//       console.log(arguments[r].imageURLs)
-//        above this is where we would want to print to the page or change dom hmtl with the output from the ajax calls
-//        example >>>>>>> $('body').html(arguments[r].readyInMinutes) or wtvr element # you want filled in to print to page
-//     }
+// function test() {
+//   for(var n = 0; n < arguments.length; n++) {
+//     console.log(arguments[n]);
 //   }
-// })
+// }
+
+// test(3, 5, 2, 'blah');
 
 
 
