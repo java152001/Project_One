@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
-    <script src="assets/java/app.js"></script>
 
     <style>
     #pantry {
@@ -20,15 +19,35 @@
         margin: 20px;
     }
 
+    #add {
+        position: absolute;
+        bottom: 15px;
+        left: 20px;
+    }
+
     #submit {
         position: absolute;
-        bottom: 20px;
+        bottom: 15px;
         right: 20px;
     }
 
     input {
         width: 20%;
     }
+
+    #ingList {
+        visibility: hidden;
+        text-align: center;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 50px;
+        left: 8px;
+        width: 180px;
+        height: 280px;
+        border-style: solid;
+        border-width: 2px;
+    }
+
     </style>
     <br>
 </head>
@@ -56,6 +75,21 @@
                 </div>
             <br>
                 <div id = "neededFood">
+                        <label for="diet">Diet</label>
+                        <select id="diet">
+                            <option value="Vegetarian">Vegetarian</option>
+                            <option value="NoRestriction">No Restriction</option>
+                        </select>
+                        <label for="prepTime">Prep Time</label>
+                        <select id="prepTime">
+                            <option value="over30Minutes">Over 30 minutes</option>
+                            <option value="under30Minutes">30 minutes or less</option>
+                        </select>
+                        <label for="dairyRestriction">Dairy Restrictions</label>
+                        <select id="dairyRestriction">
+                            <option value="dairyFree">Dairy Free</option>
+                            <option value="dairyOkay">Dairy Okay</option>
+                        </select>
                     <li class = "list">Food Needed For Completion
                         <ol>food</ol>
                         <ol>food</ol>
@@ -66,12 +100,18 @@
                 </div>
             </div>
         </div>
-                <div id = "pantry">
-                    <h2 id ="h2"><strong> Pantry Foods</strong></h2>
+                <div id ="pantry">
+                    <h2 id ="h2"><strong>Pantry Foods</strong></h2>
+                    <div id="ingList"></div>
+                    <button id="add">Add!</button>
+                    <button id="submit">Submit!</button>
                 </div>
             </div>
         </div>
-            <br>
+            <br>   
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/java/app.js"></script>
 </body>
 <script src="pantry.js"></script>
 </html>
