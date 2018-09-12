@@ -14,8 +14,9 @@
 {
     font-family: 'EB Garamond', serif;
 }
-.col-4
+#pantry
 {
+    height: 600px;
     background-color: bisque;
     box-shadow: 5px 3px;
     text-align: center;
@@ -28,7 +29,7 @@
     padding-left: 10px;
     font-family: 'EB Garamond', serif;
 }
-.col-8-recipe
+.recipe
 {
     background-color: bisque;
     box-shadow: 5px 3px;

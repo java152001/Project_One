@@ -80,6 +80,10 @@ function addNew() {
         newDiv.append(newButton);
 
     }
+
+    $("#pantry").append(newDiv);
+
+    ingredientNumber++;
 }
 
 
@@ -139,14 +143,6 @@ function recSearch(queries, limit) {
 
 
 
-// stuff from anthony below
-
-    $("#pantry").append(newDiv);
-
-    ingredientNumber++;
-
-
-
 // takes all of our existing select tags and combines them into an array of all selected options.
 // also checks to make sure that there aren't any duplicate selections.
 function tabulate() {
@@ -193,7 +189,6 @@ function createList() {
     localStorage.setItem("completedList", JSON.stringify(uniqueList));
 }
 
-    console.log(completedList);
 
 // function removeDups() {
         
