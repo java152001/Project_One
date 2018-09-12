@@ -133,7 +133,9 @@
 
 .box {
     float: left;
-    width: 33.33%;
+    height: 70%;
+    width: 32%;
+    margin: 5px;
     padding: 50px;
     
 }
