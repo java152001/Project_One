@@ -90,7 +90,7 @@ function addNew() {
 
     }
 
-    $("#pantry").append(newDiv);
+    $(".pantry").append(newDiv);
 
     ingredientNumber++;
 }
@@ -114,7 +114,7 @@ function getRecipe(id) {
 
 function recSearch(options) {
   var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=" + 
-  options.limit + "&query=" + options.query.join('+') + "&diet=" + options.diet + "&intolerances=" + options.allergy;
+  options.limit + "&query=" + options.query.join('+') + options.diet + "&intolerances=" + options.allergy;
   
   console.log(url);
   
@@ -130,24 +130,6 @@ function recSearch(options) {
     
   });
 }
-var isVege = "vegetarian"; //this should come from input from checkbox $('#checkbox').val()
-var isAllergic = "dairy"; //fill in from drop down from all the allergies
-
-recSearch({
-  query: uniqueList,
-  limit: 1,
-  diet: isVege,
-  allergy: isAllergic,
-  
-}).done(function() {
-  
-  for(var r = 0; r < arguments.length; r++) {
-    if(arguments[r].hasOwnProperty('id')) {
-      console.log(arguments[r]);
-      ///// this ^^^^ is where the final payoff to ouput data to the html DOM is
-    }
-  }
-})
 
 // end recipes from benjamin
 ////////////////////////////////////////////////////////////////
@@ -161,7 +143,7 @@ function tabulate() {
     $("#ingList").empty();
     $("#ingList").html("<h4>Your current list:</h4>");
 
-    $("#pantry").find("select").each(function(index, select){
+    $(".pantry").find("select").each(function(index, select){
         completedList.push($(select).find(":selected").text())
     });
 
@@ -174,7 +156,6 @@ function tabulate() {
 // takes our working list of items and creates a current ingredient list for the user to see.
 function createList() {
 
-    // removeDups();
 
     $.each(completedList, function(i, el){
         if($.inArray(el, uniqueList) === -1) {
@@ -193,43 +174,73 @@ function createList() {
         $("#ingList").append(ingDiv);
     }
 
-    $("#ingList").css("visibility", "visible");
+    console.log(uniqueList);
 
     localStorage.clear();
 
     localStorage.setItem("completedList", JSON.stringify(uniqueList));
 }
 
-
-// function removeDups() {
-        
-//         for (var i = 0; i < completedList.length; i++){
-//             if (unique_array.indexOf(completedList) == -1) {
-//                 unique_array.push(completedList[i]);
-//             }
-//         }
-//     }
-
 $("#getCard").on("click", function() {
-    cardGenerate("HELLO WORLD", "Is this working?");
-    cardGenerate("Take 2", "Still working?");
-    cardGenerate("Final Act", "Please look right");
+
+    var isVege = "";
+if ($("#dietInput").val() === "vegTrue") {
+    isVege = '&diet=vegetarian';
+}
+else {
+    isVege = "";
+}
+
+console.log(isVege);
+
+var isAllergic = $("#allergyInput").val(); //fill in from drop down from all the allergies
+
+if (isAllergic === "none") {
+    isAllergic = "";
+}
+
+console.log(isAllergic);
+
+recSearch({
+  query: uniqueList,
+  limit: 1,
+  diet: isVege,
+  allergy: isAllergic,
+  
+}).done(function(response) {
+  
+  for(var r = 0; r < arguments.length; r++) {
+    if(arguments[r].hasOwnProperty('id')) {
+      console.log(arguments[r]);
+      cardGenerate(response.image, response.title, response.spoonacularSourceUrl);
+    }
+  }
+})
+
 });
 
-function cardGenerate(title, summary) {
+function cardGenerate(image, title, link) {
     var cardDiv = $("<div class='card box'>");
     var cardBody = $("<div class='card-body'>");
-    // var cardImage = $("<img class='card-img-top'>");
-    // cardImage.attr("src", image);
+    var cardImage = $("<img class='card-img-top'>");
+    var recipeButton = $("<button class='recipeButton'>")
+    cardImage.attr("src", image);
 
     var cardTitle = "<h5 class='card-title'>" + title + "</h5>";
-    var cardSummary = "<p class='card-text'>" + summary + "</p>";
+    recipeButton.attr('data-value-link', link);
+    recipeButton.text("Go to Recipe!");
     console.log(cardTitle);
     console.log(cardBody);
 
     cardDiv.html(cardTitle);
-    cardBody.html(cardSummary);
+    cardDiv.append(cardImage);
+    cardBody.html(recipeButton);
     cardDiv.append(cardBody);
 
     $(".recipe").append(cardDiv);
 }
+
+$(document).on("click", "button.recipeButton", function() {
+    var recipeLink = $(this).attr('data-value-link');
+    window.open(recipeLink);
+})
