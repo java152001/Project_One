@@ -72,11 +72,12 @@
     /* border-radius: 12px; */
     font-family: 'EB Garamond', serif;
 }
-.map
+.maps
 {
+    visibility: hidden;
     background-color: bisque;
     box-shadow: 5px 3px black;
-    height: 400px;
+    height: 800px;
     border-style: solid;
     border-radius: 12px;
     border-color: darkgreen;
@@ -87,6 +88,11 @@
     text-decoration-color: darkgreen;
     font-size: 24px;
 }
+
+#map_canvas {
+    height: 100%;
+}
+
 #h
 {
     text-align: center;
@@ -140,13 +146,14 @@
 
 #getCard {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: 5%;
+    left: 30%;
 }
 
-* {
-    box-sizing: border-box;
+#getDirections {
+    position: absolute;
+    bottom: 5%;
+    right: 30%;
 }
 
 .box {
