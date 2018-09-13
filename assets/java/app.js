@@ -114,7 +114,7 @@ function getRecipe(id) {
 
 function recSearch(options) {
   var url = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?number=" + 
-  options.limit + "&query=" + options.query.join('+') + options.diet + "&intolerances=" + options.allergy;
+  options.limit + "&query=" + options.query.join('+') + options.diet + options.allergy;
   
   console.log(url);
   
@@ -198,27 +198,33 @@ var isAllergic = $("#allergyInput").val(); //fill in from drop down from all the
 if (isAllergic === "none") {
     isAllergic = "";
 }
+else {
+    isAllergic = "&intolerances=" + isAllergic;
+}
 
 console.log(isAllergic);
 
-// recSearch({
-//   query: uniqueList,
-//   limit: 1,
-//   diet: isVege,
-//   allergy: isAllergic,
+recSearch({
+  query: uniqueList,
+  limit: 1,
+  diet: isVege,
+  allergy: isAllergic,
   
-// }).done(function(response) {
+}).done(function(response) {
   
 //   for(var r = 0; r < arguments.length; r++) {
 //     if(arguments[r].hasOwnProperty('id')) {
-//       console.log(arguments[r]);
-//       cardGenerate(response.image, response.title, response.spoonacularSourceUrl);
-//     }
+    for(var r = 0; r < 3; r++) {
+      console.log(response);
+      cardGenerate(response.image, response.title, response.spoonacularSourceUrl);
+    }
+    // }
 //   }
-// })
+})
 
 });
 
+// function to generate the cards for the recipes
 function cardGenerate(image, title, link) {
     var cardDiv = $("<div class='card box'>");
     var cardBody = $("<div class='card-body'>");
@@ -240,6 +246,8 @@ function cardGenerate(image, title, link) {
     $(".recipe").append(cardDiv);
 }
 
+
+// on click event to determine which recipe button was clicked and open a new window accordingly
 $(document).on("click", "button.recipeButton", function() {
     var recipeLink = $(this).attr('data-value-link');
     window.open(recipeLink);
