@@ -154,8 +154,7 @@ function tabulate() {
 }
 
 // takes our working list of items and creates a current ingredient list for the user to see.
-function createList() {
-
+function createList() { 
 
     $.each(completedList, function(i, el){
         if($.inArray(el, uniqueList) === -1) {
@@ -205,6 +204,8 @@ else {
 
 console.log(isAllergic);
 
+$('.recipe').find('.card').remove();
+
 recSearch({
   query: uniqueList,
   limit: 3,
@@ -228,7 +229,6 @@ recSearch({
 // function to generate the cards for the recipes
 function cardGenerate(image, title, link) {
 
-
     var cardDiv = $("<div class='card box'>");
     var cardBody = $("<div class='card-body'>");
     var cardImage = $("<img class='card-img-top'>");
@@ -246,7 +246,7 @@ function cardGenerate(image, title, link) {
     cardBody.html(recipeButton);
     cardDiv.append(cardBody);
 
-    $(".recipeSpot").append(cardDiv);
+    $(".recipe").append(cardDiv);
 }
 
 // on click event to determine which recipe button was clicked and open a new window accordingly
