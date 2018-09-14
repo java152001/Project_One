@@ -42,6 +42,7 @@
 }
 .recipe
 {
+    position: relative;
     background-color: bisque;
     box-shadow: 5px 3px;
     border-style: solid;
@@ -53,6 +54,7 @@
 #h1
 {
     text-align: center;
+    background-color: bisque;
     height: 80px;
     padding: 10px;
     text-decoration: underline;
@@ -63,11 +65,12 @@
     font-family: 'EB Garamond', serif;
     box-shadow: 3px 3px black;
 }
-.map
+.maps
 {
+    visibility: hidden;
     background-color: bisque;
     box-shadow: 5px 3px black;
-    height: 400px;
+    height: 800px;
     border-style: solid;
     border-radius: 6px;
     border-color: darkgreen;
@@ -78,6 +81,11 @@
     text-decoration-color: darkgreen;
     font-size: 24px;
 }
+
+#map_canvas {
+    height: 90%;
+}
+
 #h
 {
     text-align: center;
@@ -119,11 +127,37 @@
     border-radius: 6px;
     box-shadow: 3px 3px black;
 }
-#h1
+#h2
 {
-    font-family: 'EB Garamond', serif;
-    background-color: bisque;
-    box-shadow: 3px 3px black;
+    text-decoration: underline;
+    text-decoration-color: darkgreen;
+}
+
+#getCard {
+    position: absolute;
+    bottom: 5%;
+    left: 30%;
+}
+
+#getDirections {
+    position: absolute;
+    bottom: 5%;
+    right: 30%;
+}
+
+.box {
+    float: left;
+    height: 70%;
+    width: 32%;
+    margin: 5px;
+    padding: 50px;
+}
+
+.card 
+{
+    border: 3px solid darkgreen !important;
+    border-radius: 5px !important;
+    background-color: #f1c891 !important;
 }
 #add
 {
@@ -133,15 +167,21 @@
     border-color: black;
     border-width: 2px;
     border-radius: 2px;
+    position: absolute;
+    bottom: 10px;
+    right: 30%;
 }
 #submit
 {
+    position: absolute;
+    bottom: 10px;
     background-color: darkgreen;
     color: whitesmoke;
     border-style: solid;
     border-color: black;
     border-width: 2px;
     border-radius: 2px;
+    left: 30%;
 }
 .input-group-text
 {
@@ -157,4 +197,55 @@
     border-style: solid;
     border-color: black;
     border-width: 2px;
+}
+#getCard
+{
+    color: whitesmoke;
+    background-color: darkgreen;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
+#getDirections
+{
+    color: whitesmoke;
+    background-color: darkgreen;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
+.recipeButton
+{
+    color: whitesmoke;
+    background-color: darkgreen;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
+#ingList
+{
+    border-style: solid;
+    border-color: darkgreen;
+    color: darkgreen;
+    text-decoration: underline;
+    text-decoration-color: darkgreen;
+}
+.listDelete
+{
+    color: whitesmoke;
+    background-color: darkgreen;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    margin: 5px;
+}
+.delete
+{
+    color: whitesmoke;
+    background-color: darkgreen;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 2px;
+    margin: 5px;
 }
