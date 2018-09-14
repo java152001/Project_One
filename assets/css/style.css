@@ -61,6 +61,7 @@
     border-style: solid;
     border-color: darkgreen;
     font-family: 'EB Garamond', serif;
+    box-shadow: 3px 3px black;
 }
 .map
 {
@@ -83,7 +84,7 @@
     text-decoration: underline;
     text-decoration-color: darkgreen;
     color: darkgreen;
-    font-size: 25px;
+    font-size: 24px;
     font-family: 'EB Garamond', serif;
 }
 .btn
