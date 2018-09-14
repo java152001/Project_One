@@ -1,4 +1,4 @@
-var ingredients = ["--Meats--", "Beef", "Chicken", "Fish", "--Vegetables--", "Carrots", "Mushroom", "Onion", "Milk", "Broth"];
+var ingredients = ["--Meats--", "Beef", "Chicken", "Fish", "Turkey", "Pork", "--Vegetables--", "Carrots", "Mushroom", "Onion", "Potato", "Spinach", "--Liquids--", "Milk", "Chicken Stock", "--Spices--", "Salt", "Pepper", "Garlic Powder", "Onion Powder", "Cumin"];
 var ingredientNumber = 0;
 
 // var completedList = [];
@@ -64,7 +64,7 @@ function addNew() {
     var newLine = $("<select>");
     // newLine.attr("data-ingredient-number", ingredientNumber);
     var newOption;
-    var newButton = $("<button class='delete'>");
+    var newButton = $("<button class='delete'> ");
     // var quantity = $("<input>");
 
     for (var i = 0; i < ingredients.length; i++) {
@@ -72,7 +72,7 @@ function addNew() {
         newOption = $("<option>");
 
         // checks to see if the option should be a grouping or actual option
-        if (ingredients[i] !== "--Meats--" && ingredients[i] !== "--Vegetables--") {
+        if (ingredients[i] !== "--Meats--" && ingredients[i] !== "--Vegetables--" && ingredients[i] !== "--Liquids--" && ingredients[i] !== "--Spices--") {
             newOption.attr("value", ingredients[i]);
             newOption.html(ingredients[i]);
         } else {
