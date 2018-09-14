@@ -29,6 +29,18 @@
     padding-left: 10px;
     font-family: 'EB Garamond', serif;
 }
+#pantry2
+{
+    background-color: bisque;
+    box-shadow: 3px 3px black;
+    margin: 5px;
+    text-align: center;
+    border-style: solid;
+    border-radius: 12px;
+    border-color: darkgreen;
+    font-family: 'EB Garamond', serif;
+    color: darkgreen;
+}
 .recipe
 {
     background-color: bisque;
