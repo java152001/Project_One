@@ -9,59 +9,65 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css"/>
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
 </head>    
-    <body id = "container">
-        <h1 id = "h1"><strong>Reciplease!</strong></h1>
-        <p id = "p">Please make your food selection in the dropdown below and to the left. <br> Then select which dietary restrictions you would like to apply. <br> Once that is completed, three suggested recipes will be shown.</p>
-
-        </div>
-        <div class = "row">
-            <div class = "col-3" id="pantry">
-               <h1 id = "h"><strong>Pantry Foods</strong></h1>
-
-               <div id="ingList">
-               <button id="add">Add!</button> 
-               <button id="submit">Submit</button>
-               <br><br><br><br><br><br><br><br><br><br>
-               <p id = "p">Previously Added Food</p>
+    <body>
+        <div id="container">
+            <div class="row">
+                <div class="col-6 offset-3">
+                    <h1 id = "h1"><strong>Reciplease!</strong></h1>
+                </div>
             </div>
-            </div>
-            <br>
-            <div class = "col-8 ml-auto recipe">
-                <h1 id = "h"><strong>Recipes</strong></h1>
-                <div>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Are you vegetarian?
-                            </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <a class="dropdown-item" href="#">Yes</a>
-                                  <a class="dropdown-item" href="#">No</a>
+            <div class = "row justify-content-center">
+                <div class="col-3 pantry">
+                <h1 id = "h"><strong>Pantry Foods</strong></h1>
+
+                    <div id="ingList">
+                    </div>
+                    <button id="add">Add!</button> 
+                    <button id="submit">Submit!</button>
+                </div>
+                <div class="col-7 recipe">
+                    <h1 id = "h"><strong>Recipes</strong></h1>
+                    <div class="row">
+                        <div class="col-3 offset-2">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="dietInput">Vegetarian?</label>
                                 </div>
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Food Catagories
-                            </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Dairy</a>
-                                    <a class="dropdown-item" href="#">Egg</a>
-                                    <a class="dropdown-item" href="#">Gluten</a>
-                                    <a class="dropdown-item" href="#">Peanut</a>
-                                    <a class="dropdown-item" href="#">Sesame</a>
-                                    <a class="dropdown-item" href="#">Seafood</a>
-                                    <a class="dropdown-item" href="#">Shellfish</a>
-                                    <a class="dropdown-item" href="#">Soy</a>
-                                    <a class="dropdown-item" href="#">Tree Nut</a>
-                                    <a class="dropdown-item" href="#">Wheat</a>
+                                <select class="custom-select" id="dietInput">
+                                    <option value="1">No</option>
+                                    <option value="2">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-3 offset-1">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="allergyInput">Allergies?</label>
                                 </div>
+                                <select class="custom-select" id="allergyInput">
+                                    <option value="None">None</option>
+                                    <option value="Dairy">Dairy</option>
+                                    <option value="Egg">Egg</option>
+                                    <option value="Gluten">Gluten</option>
+                                    <option value="Peanut">Peanut</option>
+                                    <option value="Sesame">Sesame</option>
+                                    <option value="Seafood">Seafood</option>
+                                    <option value="Shellfish">Shellfish</option>
+                                    <option value="Soy">Soy</option>
+                                    <option value="TreeNut">Tree Nut</option>
+                                    <option value="Wheat">Wheat</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
+                </div> 
             </div>
-        <br>
-        <div id = "row">
-            <div id = "maps-col-6">
-                <strong>Map</strong>
+            <div class="row">
+                <div class="col-10 offset-1 map">
+                    <strong>Map</strong>
+                </div>
             </div>
-        </div>    
+        </div> 
     </body>
 
 

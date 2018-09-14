@@ -5,7 +5,6 @@
     font-family: 'EB Garamond', serif;
     border-style: solid;
     border-color: darkgreen;
-    border-radius: 12px;
     margin: 5px;
     padding-bottom: 10px;
     padding: 5px;
@@ -14,14 +13,14 @@
 {
     font-family: 'EB Garamond', serif;
 }
-#pantry
+.pantry
 {
     height: 600px;
     background-color: bisque;
     box-shadow: 5px 3px;
     text-align: center;
     border-style: solid;
-    border-radius: 12px;
+    border-radius: 6px;
     border-color: darkgreen;
     margin-top: 10px;
     margin-left: 15px;
@@ -36,7 +35,7 @@
     margin: 5px;
     text-align: center;
     border-style: solid;
-    border-radius: 12px;
+    border-radius: 6px;
     border-color: darkgreen;
     font-family: 'EB Garamond', serif;
     color: darkgreen;
@@ -46,37 +45,30 @@
     background-color: bisque;
     box-shadow: 5px 3px;
     border-style: solid;
-    border-radius: 12px;
+    border-radius: 6px;
     border-color: darkgreen;
     margin: 10px;
-    width: 60%;
     font-family: 'EB Garamond', serif;
 }
 #h1
 {
     text-align: center;
+    height: 80px;
+    padding: 10px;
     text-decoration: underline;
     text-decoration-color: darkgreen;
     color: darkgreen;
     border-style: solid;
     border-color: darkgreen;
-    border-radius: 12px;
-    font-family: 'EB Garamond', serif;
-
-}
-.recipe
-{
-    text-align: left;
     font-family: 'EB Garamond', serif;
 }
-#maps-col-6
+.map
 {
     background-color: bisque;
     box-shadow: 5px 3px black;
-    width: 400px;
     height: 400px;
     border-style: solid;
-    border-radius: 12px;
+    border-radius: 6px;
     border-color: darkgreen;
     text-align: center;
     font-family: 'EB Garamond', serif;
@@ -98,7 +90,7 @@
 {
     box-shadow: 2px 2px black;
     background-color: darkgreen;
-    border-radius: 12px;
+    border-radius: 6px;
     margin-left: 10px;
     font-family: 'EB Garamond', serif;
     color: whitesmoke;
@@ -123,7 +115,7 @@
     background-color: bisque;
     border-style: solid;
     border-color: darkgreen;
-    border-radius: 12px;
+    border-radius: 6px;
     box-shadow: 3px 3px black;
 }
 #h1
@@ -131,4 +123,37 @@
     font-family: 'EB Garamond', serif;
     background-color: bisque;
     box-shadow: 3px 3px black;
+}
+#add
+{
+    background-color: darkgreen;
+    color: whitesmoke;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 2px;
+}
+#submit
+{
+    background-color: darkgreen;
+    color: whitesmoke;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 2px;
+}
+.input-group-text
+{
+    color: whitesmoke;
+    background-color: darkgreen;
+    border-style: solid;
+    border-color: black;
+}
+.custom-select
+{
+    color: whitesmoke;
+    background-color: darkgreen;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
 }
