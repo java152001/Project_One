@@ -5,7 +5,7 @@
     font-family: 'EB Garamond', serif;
     border-style: solid;
     border-color: darkgreen;
-    border-radius: 12px;
+    /* border-radius: 12px; */
     margin: 5px;
     padding-bottom: 10px;
     padding: 5px;
@@ -14,7 +14,7 @@
 {
     font-family: 'EB Garamond', serif;
 }
-#pantry
+.pantry
 {
     height: 600px;
     background-color: bisque;
@@ -29,40 +29,55 @@
     padding-left: 10px;
     font-family: 'EB Garamond', serif;
 }
+#add {
+    position: absolute;
+    bottom: 10px;
+    left: 60px;
+}
+#submit {
+    position: absolute;
+    bottom: 10px;
+    right: 60px;
+}
+#ingList {
+    position: absolute;
+    bottom: 60px;
+    right: 16px;
+    width: 90%;
+    border-style: solid;
+    border-color: black;
+    height: 300px;
+}
 .recipe
 {
+    position: relative;
     background-color: bisque;
     box-shadow: 5px 3px;
     border-style: solid;
     border-radius: 12px;
     border-color: darkgreen;
     margin: 10px;
-    width: 60%;
     font-family: 'EB Garamond', serif;
 }
 #h1
 {
     text-align: center;
+    height: 80px;
+    padding: 10px;
     text-decoration: underline;
     text-decoration-color: darkgreen;
     color: darkgreen;
     border-style: solid;
     border-color: darkgreen;
-    border-radius: 12px;
-    font-family: 'EB Garamond', serif;
-
-}
-.recipe
-{
-    text-align: left;
+    /* border-radius: 12px; */
     font-family: 'EB Garamond', serif;
 }
-#maps-col-6
+.maps
 {
+    visibility: hidden;
     background-color: bisque;
     box-shadow: 5px 3px black;
-    width: 400px;
-    height: 400px;
+    height: 800px;
     border-style: solid;
     border-radius: 12px;
     border-color: darkgreen;
@@ -73,6 +88,11 @@
     text-decoration-color: darkgreen;
     font-size: 24px;
 }
+
+#map_canvas {
+    height: 100%;
+}
+
 #h
 {
     text-align: center;
@@ -124,30 +144,24 @@
     text-decoration-color: darkgreen;
 }
 
+#getCard {
+    position: absolute;
+    bottom: 5%;
+    left: 30%;
+}
 
-/* Jorge css */
-
-* {
-    box-sizing: border-box;
+#getDirections {
+    position: absolute;
+    bottom: 5%;
+    right: 30%;
 }
 
 .box {
     float: left;
-    width: 33.33%;
+    height: 70%;
+    width: 32%;
+    margin: 5px;
     padding: 50px;
-    
-}
-
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-#btn {
-    margin: 20px;
-    font-family: 'Courier New', Courier, monospace;
-    margin-left: 48%;
 }
 
 .card {
@@ -157,3 +171,6 @@
 }
 
 
+    /* background-color: bisque;
+    box-shadow: 3px 3px black;
+} */
