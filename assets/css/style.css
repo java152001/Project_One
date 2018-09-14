@@ -29,9 +29,6 @@
     padding-left: 10px;
     font-family: 'EB Garamond', serif;
 }
-<<<<<<< HEAD
-
-=======
 .recipe
 {
     background-color: bisque;
@@ -43,7 +40,6 @@
     width: 60%;
     font-family: 'EB Garamond', serif;
 }
->>>>>>> origin/master
 #h1
 {
     text-align: center;
@@ -121,7 +117,6 @@
 #h1
 {
     font-family: 'EB Garamond', serif;
-<<<<<<< HEAD
 }
 #h2
 {
@@ -152,7 +147,7 @@
 #btn {
     margin: 20px;
     font-family: 'Courier New', Courier, monospace;
-    margin-left: 38%;
+    margin-left: 48%;
 }
 
 .card {
@@ -162,8 +157,3 @@
 }
 
 
-=======
-    background-color: bisque;
-    box-shadow: 3px 3px black;
-}
->>>>>>> origin/master

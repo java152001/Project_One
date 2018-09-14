@@ -5,6 +5,13 @@ var completedList = [];
 
 var uniqueList = [];
 
+// Hamburger button(pulls recipe cards)
+$(document).ready(function () {
+    $("#btn").click(function () {
+    $(".card-deck").toggle();
+});
+});
+
 
 // brings in list from local storage
 completedList = JSON.parse(localStorage.getItem("completedList"));
