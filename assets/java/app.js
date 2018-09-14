@@ -214,13 +214,13 @@ recSearch({
   
 }).done(function(response) {
   
-//   for(var r = 0; r < arguments.length; r++) {
-//     if(arguments[r].hasOwnProperty('id')) {
-    for(var r = 0; r < 3; r++) {
+  for(var r = 0; r < arguments.length; r++) {
+    if(arguments[r][0].hasOwnProperty('id')) {
+    // for(var r = 0; r < 3; r++) {
       console.log(response);
-      cardGenerate(response.image, response.title, response.spoonacularSourceUrl);
+      cardGenerate(arguments[r][0].image, arguments[r][0].title, arguments[r][0].spoonacularSourceUrl);
     }
-    // }
+    }
 //   }
 })
 
