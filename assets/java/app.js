@@ -37,7 +37,7 @@ $("#add").on("click", function() {
 $(document).on("click", "button.delete", function() {
     var currentItem = $(this).attr('data-number');
 
-    $("#pantry").find("[data-ingredient-number='" + currentItem + "']").remove();
+    $(".pantry").find("[data-ingredient-number='" + currentItem + "']").remove();
 
 });
 
