@@ -184,6 +184,7 @@ function createList() {
 $("#getCard").on("click", function() {
 
     var isVege = "";
+
 if ($("#dietInput").val() === "vegTrue") {
     isVege = '&diet=vegetarian';
 }
@@ -206,7 +207,7 @@ console.log(isAllergic);
 
 recSearch({
   query: uniqueList,
-  limit: 1,
+  limit: 3,
   diet: isVege,
   allergy: isAllergic,
   
@@ -226,6 +227,8 @@ recSearch({
 
 // function to generate the cards for the recipes
 function cardGenerate(image, title, link) {
+
+
     var cardDiv = $("<div class='card box'>");
     var cardBody = $("<div class='card-body'>");
     var cardImage = $("<img class='card-img-top'>");
@@ -243,7 +246,7 @@ function cardGenerate(image, title, link) {
     cardBody.html(recipeButton);
     cardDiv.append(cardBody);
 
-    $(".recipe").append(cardDiv);
+    $(".recipeSpot").append(cardDiv);
 }
 
 // on click event to determine which recipe button was clicked and open a new window accordingly
