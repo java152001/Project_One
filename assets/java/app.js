@@ -157,14 +157,17 @@ function createList() {
     });
 
     for (var i = 0; i < uniqueList.length; i++) {
-        var ingDiv = $("<div>");
+        var ingDiv = $("<div style='float: left; width: 65%'>");
+        var buttonDiv = $("<div style='float: left; width: 10%'>");
         var listDel = $("<button class='listDelete'>");
 
         ingDiv.html(uniqueList[i]);
         listDel.attr("data-ingredient", uniqueList[i]);
         listDel.text("X");
-        ingDiv.append(listDel);
+        buttonDiv.html(listDel);
+        // ingDiv.append(buttonDiv);
         $("#ingList").append(ingDiv);
+        $("#ingList").append(buttonDiv);
     }
 
     console.log(uniqueList);
@@ -228,8 +231,6 @@ function cardGenerate(image, title, link) {
     var cardTitle = "<h5 class='card-title'>" + title + "</h5>";
     recipeButton.attr('data-value-link', link);
     recipeButton.text("Go to Recipe!");
-    console.log(cardTitle);
-    console.log(cardBody);
 
     cardDiv.html(cardTitle);
     cardDiv.append(cardImage);

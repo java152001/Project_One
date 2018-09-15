@@ -142,6 +142,7 @@
 }
 
 .box {
+    position: relative;
     float: left;
     height: 70%;
     width: 32%;
@@ -154,6 +155,7 @@
     border: 3px solid darkgreen !important;
     border-radius: 5px !important;
     background-color: #f1c891 !important;
+    text-align: center;
 }
 #add
 {
@@ -210,8 +212,22 @@
     border-color: black;
     border-width: 2px;
 }
+.card-img-top 
+{
+    max-width: 65%;
+    max-height: 65%;
+    position: absolute;
+    bottom: 20%;
+    left: 18%;
+    padding:1px;
+    border:1px solid #021a40;
+    background-color: white;
+}
 .recipeButton
 {
+    position: absolute;
+    bottom: 5%;
+    left: 35%;
     color: whitesmoke;
     background-color: darkgreen;
     border-style: solid;
