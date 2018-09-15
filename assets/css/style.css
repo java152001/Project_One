@@ -246,6 +246,7 @@
     color: darkgreen;
     text-decoration: underline;
     text-decoration-color: darkgreen;
+    visibility: hidden;
 }
 .listDelete
 {

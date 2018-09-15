@@ -5,13 +5,6 @@ var ingredientNumber = 0;
 
 var uniqueList = [];
 
-// Hamburger button(pulls recipe cards)
-$(document).ready(function () {
-    $("#btn").click(function () {
-    $(".card-deck").toggle();
-});
-});
-
 
 // brings in list from local storage
 completedList = JSON.parse(localStorage.getItem("completedList"));
@@ -170,11 +163,15 @@ function createList() {
         $("#ingList").append(buttonDiv);
     }
 
-    console.log(uniqueList);
+    $("#ingList").css('visibility', 'visible');
 
     localStorage.clear();
 
     localStorage.setItem("completedList", JSON.stringify(uniqueList));
+
+    if (uniqueList.length === 0) {
+        localStorage.clear();
+    }
 }
 
 // Builds the final search query string and pushes response data to function to generate recipe cards
