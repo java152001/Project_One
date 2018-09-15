@@ -9,12 +9,7 @@ var uniqueList = [];
 // brings in list from local storage
 completedList = JSON.parse(localStorage.getItem("completedList"));
 
-// checks to see if there is anything in the array and if so generate our current list
-// // if (completedList.length !== 0) {
-//     $("#ingList").html("<h4>Your current list:</h4>");
-
-//     createList();
-// } 
+// checks to see if there is anything in local storage and if so creates ingredient list.
 if (!Array.isArray(completedList)) {
     completedList = [];
   }
@@ -43,10 +38,17 @@ $(document).on("click", "button.delete", function() {
 
 // removes from the current list and local storage
 $("#ingList").on("click", "button.listDelete", function() {
-    var currentDelete = $(this).attr('data-list-number');
+    var currentDelete = $(this).attr('data-ingredient');
 
-    uniqueList.splice(currentDelete, 1);
-    completedList.splice(currentDelete, 1);
+    console.log(currentDelete);
+
+    completedList = completedList.filter(a => a !== currentDelete);
+
+    for(var i = uniqueList.length - 1; i >= 0; i--) {
+        if(uniqueList[i] === currentDelete) {
+           uniqueList.splice(i, 1);
+        }
+    }
 
     $("#ingList").empty();
     $("#ingList").html("<h4>Your current list:</h4>");
@@ -62,10 +64,8 @@ function addNew() {
     var newDiv = $("<div>");
 
     var newLine = $("<select>");
-    // newLine.attr("data-ingredient-number", ingredientNumber);
     var newOption;
     var newButton = $("<button class='delete'> ");
-    // var quantity = $("<input>");
 
     for (var i = 0; i < ingredients.length; i++) {
 
@@ -84,8 +84,6 @@ function addNew() {
         newDiv.attr("data-ingredient-number", ingredientNumber);
         newButton.attr("data-number", ingredientNumber);
         newButton.text("X");
-        // quantity.attr("value", "qty");
-        // newDiv.append(quantity);
         newDiv.append(newButton);
 
     }
@@ -95,11 +93,7 @@ function addNew() {
     ingredientNumber++;
 }
 
-
-
-///////////////////////////////////////////////////////////////////////
-// recipe stuff below this line
-
+// AJAX call function for us to search ingredient API
 var mashapeHeaders = {
       'X-Mashape-Key': 'dsGw9nFi65mshhHVvLGFzWY0BbPNp1byJ6njsnmw61a6HHSCw3'
 };
@@ -131,11 +125,6 @@ function recSearch(options) {
   });
 }
 
-// end recipes from benjamin
-////////////////////////////////////////////////////////////////
-
-
-
 // takes all of our existing select tags and combines them into an array of all selected options.
 // also checks to make sure that there aren't any duplicate selections.
 function tabulate() {
@@ -148,8 +137,6 @@ function tabulate() {
     });
 
     createList();
-
-
 
 }
 
@@ -167,7 +154,7 @@ function createList() {
         var listDel = $("<button class='listDelete'>");
 
         ingDiv.html(uniqueList[i]);
-        listDel.attr("data-list-number", i);
+        listDel.attr("data-ingredient", uniqueList[i]);
         listDel.text("X");
         ingDiv.append(listDel);
         $("#ingList").append(ingDiv);
@@ -180,6 +167,7 @@ function createList() {
     localStorage.setItem("completedList", JSON.stringify(uniqueList));
 }
 
+// Builds the final search query string and pushes response data to function to generate recipe cards
 $("#getCard").on("click", function() {
 
     var isVege = "";
@@ -191,8 +179,6 @@ else {
     isVege = "";
 }
 
-console.log(isVege);
-
 var isAllergic = $("#allergyInput").val(); //fill in from drop down from all the allergies
 
 if (isAllergic === "none") {
@@ -201,8 +187,6 @@ if (isAllergic === "none") {
 else {
     isAllergic = "&intolerances=" + isAllergic;
 }
-
-console.log(isAllergic);
 
 $('.recipe').find('.card').remove();
 
@@ -216,12 +200,11 @@ recSearch({
   
   for(var r = 0; r < arguments.length; r++) {
     if(arguments[r][0].hasOwnProperty('id')) {
-    // for(var r = 0; r < 3; r++) {
       console.log(response);
       cardGenerate(arguments[r][0].image, arguments[r][0].title, arguments[r][0].spoonacularSourceUrl);
     }
     }
-//   }
+
 })
 
 });
@@ -260,41 +243,3 @@ $(document).on("click", "button#getDirections", function() {
     $(".maps").css("visibility", "visible");
 
 });
-
-// var map, infoWindow;
-
-// function initMap() {
-//   map = new google.maps.Map($('.map'), {
-//     center: {lat: 37.697948, lng:  -110.95488979999999},
-//     zoom: 3
-//   });
-//   infoWindow = new google.maps.InfoWindow;
-
-//   if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(function(position) {
-//       var pos = {
-//         lat: position.coords.latitude,
-//         lng: position.coords.longitude
-//       };
-
-//       infoWindow.setPosition(pos);
-//       infoWindow.setContent('Location found.');
-//       infoWindow.open(map);
-//       map.setCenter(pos);
-//       map.setZoom(15);
-//     }, function() {
-//       handleLocationError(true, infoWindow, map.getCenter());
-//     });
-//   } else {
-//     // Browser doesn't support Geolocation
-//     handleLocationError(false, infoWindow, map.getCenter());
-//   }
-// }
-
-// function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-//   infoWindow.setPosition(pos);
-//   infoWindow.setContent(browserHasGeolocation ?
-//                         'Error: The Geolocation service failed.' :
-//                         'Error: Your browser doesn\'t support geolocation.');
-//   infoWindow.open(map);
-// }
